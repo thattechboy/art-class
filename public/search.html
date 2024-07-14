@@ -15,12 +15,25 @@
   </head>
 
   <body theme="main">
+    <nav style="display: none;">
+      <div class="logo">
+        <img src="./assets/images/icon.png" alt="Logo" draggable="false" />
+        <h1>XBO</h1>
+      </div>
+
+      <p id="time"></p>
+
+      <div class="navitems">
+        <div class="navitem"><a href="/index.html">Home</a></div>
+        <div class="navitem"><a selected href="/search.html">Search</a></div>
+      </div>
+    </nav>
+
     <div class="center-container">
       <h1>Search</h1>
-      <input id="searchInput" class="pxyinput" type="text" placeholder="Search..." />
-      <button id="searchButton">Search</button>
+      <input class="pxyinput" type="text" placeholder="Search..." />
     </div>
-    <iframe id="searchFrame" class="frame"></iframe>
+    <iframe class="frame"></iframe>
   </body>
 
   <script src="./js/index.js"></script>
