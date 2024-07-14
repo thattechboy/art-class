@@ -31,11 +31,30 @@
 
     <div class="center-container">
       <h1>Search</h1>
-      <input class="pxyinput" type="text" placeholder="Search..." />
+      <input id="searchInput" class="pxyinput" type="text" placeholder="Search..." />
+      <button id="searchButton">Search</button>
     </div>
-    <iframe class="frame"></iframe>
+    <iframe id="searchFrame" class="frame"></iframe>
   </body>
 
-  <script src="./js/index.js"></script>
-  <script src="./js/search.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const searchInput = document.getElementById('searchInput');
+      const searchButton = document.getElementById('searchButton');
+      const iframe = document.getElementById('searchFrame');
+
+      function performSearch() {
+        const query = searchInput.value;
+        const proxyUrl = `/proxy/search?q=${encodeURIComponent(query)}`;
+        iframe.src = proxyUrl;
+      }
+
+      searchButton.addEventListener('click', performSearch);
+      searchInput.addEventListener('keypress', function (event) {
+        if (event.key === 'Enter') {
+          performSearch();
+        }
+      });
+    });
+  </script>
 </html>
